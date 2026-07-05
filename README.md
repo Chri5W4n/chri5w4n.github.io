@@ -3,7 +3,7 @@
 </div>
 
 
-###
+<br>
 
 <div data-importer="socials" align="center">
   <a href="https://www.linkedin.com/in/chri5w4n" target="_blank">
@@ -13,7 +13,7 @@
   <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/youtube/default.svg" width="52" height="40" alt="youtube logo"  />
 </div>
 
-###
+<br>
 
 <div data-importer="techs" align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" height="40" alt="c logo"  />
@@ -33,7 +33,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css logo"  />
 </div>
 
-###
+<br>
 
 <div data-importer="stats" align="center" style="padding: 25px 0; width: 100%;">
   <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box;">
@@ -42,7 +42,7 @@
   </div>
 </div>
 
-###
+<br>
 
 <picture data-importer="pacman">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Chri5W4n/Chri5W4n/pacman-output/puzzle-bobble-contribution-graph-dark.svg?game=puzzle-bobble">
@@ -50,4 +50,4 @@
   <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/Chri5W4n/Chri5W4n/pacman-output/puzzle-bobble-contribution-graph.svg?game=puzzle-bobble">
 </picture>
 
-###
+<br>
