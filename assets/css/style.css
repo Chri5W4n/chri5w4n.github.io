@@ -53,21 +53,22 @@ main{
   align-items: baseline;
 }
 
-.now-section h2 {
+.subtitle {
   color: #fff;
   font-family: serif;
   font-size:1.2rem;
   font-weight: 500;
 }
 
-.now-section .meta {
-  color: #555;
-  font-size: 0.85rem;
+.date {
+  color: #555 !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 0px !important;
 }
 
 .now-section p {
   font-size: 0.95em;
-  line-height: 1.8;
+  line-height: 1.7;
   margin-bottom: 24px;
 }
 
@@ -107,3 +108,53 @@ footer a:hover{
   color: #444444;
   font-size: 0.8rem;
 }
+
+   /* Blog */
+
+.post-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0px;
+}
+
+.post-date {
+  color: #555555;
+  font-size: 1rem;
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.post-link {
+  color: #cbcbcb;
+  font-size: 1rem;
+  padding: 0 !important;
+  line-height: 1.5;
+}
+
+.post-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@keyframes loadingAnima{
+  0%{
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn{
+  opacity: 0;
+  animation: loadingAnima 4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 150ms; }
+.delay-2 { animation-delay: 350ms; }
+.delay-3 { animation-delay: 550ms; }
+.delay-4 { animation-delay: 750ms; }
+.delay-5 { animation-delay: 950ms; }
