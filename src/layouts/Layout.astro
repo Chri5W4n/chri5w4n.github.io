@@ -1,0 +1,47 @@
+---
+const { title } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{ title }</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+  </head>
+  <body>
+
+    <header class="fadeIn delay-1">
+      <nav>
+        <a href="/" class="nav-now">Now</a>
+        <a href="/blog" class="nav-blog">Blog</a>
+        <a href="/project" class="nav-project">Project</a>
+        <a href="/gallery" class="nav-gallery">Gallery</a>
+        <a href="/me" class="nav-me">Me</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="fadeIn delay-5">
+        <div class="footer-links">
+          <a href="https://github.com/Chri5W4n" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:me@chri5w4n.com">me@chri5w4n.com</a>
+        </div>
+        <p class="copyright">&copy; 2026 Chri5W4n</p>
+    </footer>
+    <script>
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('blog')) document.querySelector('.nav-blog')?.classList.add('active');
+      else if (currentPath.includes('project')) document.querySelector('.nav-project')?.classList.add('active');
+      else if (currentPath.includes('gallery')) document.querySelector('.nav-gallery')?.classList.add('active');
+      else if (currentPath.includes('me')) document.querySelector('.nav-me')?.classList.add('active');
+      else document.querySelector('.nav-now')?.classList.add('active');
+    </script>
+  </body>
+</html>

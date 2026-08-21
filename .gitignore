@@ -1,1 +1,10 @@
 .DS_Store
+.astro/
+node_modules/
+dist/
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+*.swo

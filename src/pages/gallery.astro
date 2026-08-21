@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+const AllPhotos = import.meta.glob('../../public/Photos/*.{jpg,jpeg,JPG,JPEG}', {eager:true});
+const Photos = Object.values(AllPhotos) as any[];
+---
+
+<Layout title=Gallery>
+    <h1 class="title fadeIn delay-2">Gallery</h1>
+    <p class="gallery-phase fadeIn delay-3">A collection of snapshot memories, street aesthetics, and quiet milestones.</p>
+    <div class="gallery-board fadeIn delay-4">
+        {
+            Photos.map((photo) => (
+            <button class="photo-box" data-src={photo.default.src} data-caption="">
+                <img src={photo.default.src} alt="">
+            </button>
+            ))
+        }
+    </div>
+    <dialog id="popup" class="lightbox">
+        <button class="close-btn">
+            <svg class="back-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-undo2-icon lucide-undo-2">
+                <path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img id="popup-img" src="">
+            <p id="popup-caption" class="caption"></p>
+        </div>
+    </dialog>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dialog = document.getElementById('popup');
+            const img = document.getElementById('popup-img');
+            const caption = document.getElementById('popup-caption');
+            document.querySelectorAll('.photo-box').forEach(button => {
+                button.addEventListener('click', () => {
+                    img.src = button.getAttribute('data-src') || '';
+                    caption.textContent = button.getAttribute('data-caption') || '';
+                    dialog.showModal();
+                    });
+            });
+            dialog.addEventListener('click', (e) => {
+                if(e.target === dialog) dialog.close();
+            });
+            document.querySelector('.close-btn')?.addEventListener('click', () => {
+                dialog.close();
+            });
+        });
+    </script>
+</Layout>
+
+<style>
+    .gallery-phase{
+    font-family: monospace;
+    }
+
+    .gallery-board{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 4px;
+    margin-top: 40px;
+    }
+
+    .gallery-board a{
+    padding: 0;
+    }
+
+    .photo-box{
+    background: none;
+    border: none;
+    padding: 0;
+    }
+
+    .photo-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    filter: grayscale(100%);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .photo-box:hover img{
+    filter: grayscale(0%);
+    transform: scale(1.03);
+    }
+
+    .lightbox{
+        border: none;
+        background: transparent;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .lightbox::backdrop{
+    background-color: rgba(11, 15, 25, 0.4);
+    backdrop-filter: blur(8px);
+    }
+
+    .lightbox-content{
+        max-width: 600px;
+        width: fit-content;
+        text-align: center;
+    }
+
+    .lightbox-content img{
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    }
+
+    .caption{
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    }
+
+    .close-btn{
+        position: absolute;
+        left: -30px;
+        background: none;
+        border: none;
+        position: absolute;
+        top: 10px; 
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .back-arrow{
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s;
+    }
+
+    .close-btn:hover{
+    color: #fff;
+    }
+
+    .close-btn:hover .back-arrow {
+    transform: translateX(-4px); 
+    }
+</style>

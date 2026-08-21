@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title=Blog>
+  <h1 class="title fadeIn delay-2">Blog</h1>
+  <section class="post-list">
+    <div class="section-header fadeIn delay-3">
+        <h2 class="subtitle">2026</h2>
+    </div>
+    <div class="fadeIn delay-4">
+      <article class="post-item">
+        <span class="post-date">August 20</span>
+        <a href="#" class="post-link">Building a Dark-Themed Minimalist Personal Website</a>
+      </article>
+      <article class="post-item">
+        <span class="post-date">August 15</span>
+        <a href="#" class="post-link">My First Technical Stack: From C to Algorithmic Trading</a>
+      </article>
+      <article class="post-item">
+        <span class="post-date">August 01</span>
+        <a href="#" class="post-link">Why Every Developer Needs a Custom Name Domain</a>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .post-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0px;
+  }
+
+  .post-date {
+    color: #555555;
+    font-size: 1rem;
+    width: 110px;
+    flex-shrink: 0;
+  }
+
+  .post-link {
+    color: #cbcbcb;
+    font-size: 1rem;
+    padding: 0 !important;
+    line-height: 1.5;
+  }
+
+  .post-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+</style>
