@@ -11,9 +11,7 @@ const Photos = (Object.values(AllPhotos) as {default: ImageMetadata}[]).reverse(
     <div class="gallery-board fadeIn delay-4">
         {
             Photos.map((photo) => (
-            <button class="photo-box" data-src={photo.default.src} data-caption="">
-                <img src={photo.default.src} alt="">
-            </button>
+                <img class="photo-box" src={photo.default.src} alt="">
             ))
         }
     </div>
@@ -36,12 +34,6 @@ const Photos = (Object.values(AllPhotos) as {default: ImageMetadata}[]).reverse(
     }
 
     .photo-box{
-    background: none;
-    border: none;
-    padding: 0;
-    }
-
-    .photo-box img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -50,67 +42,8 @@ const Photos = (Object.values(AllPhotos) as {default: ImageMetadata}[]).reverse(
     transition: transform 0.4s ease, filter 0.4s ease;
     }
 
-    .photo-box:hover img{
+    .photo-box:hover{
     filter: grayscale(0%);
     transform: scale(1.03);
-    }
-
-    .lightbox{
-        border: none;
-        background: transparent;
-        padding: 0;
-        overflow: visible;
-    }
-
-    .lightbox::backdrop{
-    background-color: rgba(11, 15, 25, 0.4);
-    backdrop-filter: blur(8px);
-    }
-
-    .lightbox-content{
-        max-width: 600px;
-        width: fit-content;
-        text-align: center;
-    }
-
-    .lightbox-content img{
-    width: 100%;
-    max-height: 70vh;
-    object-fit: contain;
-    }
-
-    .caption{
-    font-family: monospace;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-top: 20px;
-    }
-
-    .close-btn{
-        position: absolute;
-        left: -30px;
-        background: none;
-        border: none;
-        position: absolute;
-        top: 10px; 
-        color: rgba(255, 255, 255, 0.5);
-        padding: 0;
-        cursor: pointer;
-        outline: none;
-    }
-
-    .back-arrow{
-    width: 20px;
-    height: 20px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s;
-    }
-
-    .close-btn:hover{
-    color: #fff;
-    }
-
-    .close-btn:hover .back-arrow {
-    transform: translateX(-4px); 
     }
 </style>
