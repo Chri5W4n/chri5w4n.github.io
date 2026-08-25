@@ -91,6 +91,7 @@ main{
 
 .date {
   color: #555 !important;
+  font-family: serif;
   font-size: 0.85rem !important;
   margin-bottom: 0px !important;
 }
@@ -150,4 +151,5 @@ footer a:hover{
 .delay-3 { animation-delay: 550ms; }
 .delay-4 { animation-delay: 750ms; }
 .delay-5 { animation-delay: 950ms; }
+.delay-6 { animation-delay: 1450ms; }
 
