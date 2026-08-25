@@ -1,7 +1,8 @@
 ---
+import type { ImageMetadata } from 'astro';
 import Layout from '../layouts/Layout.astro';
 const AllPhotos = import.meta.glob('../../public/Photos/*.{jpg,jpeg,JPG,JPEG}', {eager:true});
-const Photos = Object.values(AllPhotos) as any[];
+const Photos = (Object.values(AllPhotos) as {default: ImageMetadata}[]).reverse();
 ---
 
 <Layout title=Gallery>
@@ -16,37 +17,6 @@ const Photos = Object.values(AllPhotos) as any[];
             ))
         }
     </div>
-    <dialog id="popup" class="lightbox">
-        <button class="close-btn">
-            <svg class="back-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-undo2-icon lucide-undo-2">
-                <path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/>
-            </svg>
-        </button>
-        <div class="lightbox-content">
-            <img id="popup-img" src="">
-            <p id="popup-caption" class="caption"></p>
-        </div>
-    </dialog>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const dialog = document.getElementById('popup');
-            const img = document.getElementById('popup-img');
-            const caption = document.getElementById('popup-caption');
-            document.querySelectorAll('.photo-box').forEach(button => {
-                button.addEventListener('click', () => {
-                    img.src = button.getAttribute('data-src') || '';
-                    caption.textContent = button.getAttribute('data-caption') || '';
-                    dialog.showModal();
-                    });
-            });
-            dialog.addEventListener('click', (e) => {
-                if(e.target === dialog) dialog.close();
-            });
-            document.querySelector('.close-btn')?.addEventListener('click', () => {
-                dialog.close();
-            });
-        });
-    </script>
 </Layout>
 
 <style>
