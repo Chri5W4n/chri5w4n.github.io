@@ -1,0 +1,56 @@
+---
+import { getCollection, render} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths(){
+    const posts = await getCollection('blog');
+
+    return posts.map(post =>({
+        params: {slug: post.id},
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+    <button class="back-btn fadeIn delay-6" onclick="location.replace('/blog')">
+        <svg class="back-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left-icon lucide-move-left"><path d="M6 8L2 12L6 16"/><path d="M2 12H22"/></svg>
+    </button>
+    <h1 class="title fadeIn delay-2">{post.data.title}</h1>
+    <div class="fadeIn delay-3">
+        <time class="date">{post.data.date.toLocaleDateString('en-us', {month:'long', day:'2-digit', year:'numeric'})}</time>
+    </div>
+    <div class="fadeIn delay-4"><Content /></div>
+</Layout>
+
+<style>
+    .back-btn{
+        position: fixed;
+        top: 95px;
+        left: 320px;
+        padding: 0;
+        background: none;
+        border: none;
+        color: #555;
+        cursor: pointer;
+    }
+    .back-arrow{
+        transition: transform 0.4s ease-in-out;
+        display: inline-block;
+    }
+    .back-btn:hover .back-arrow{
+        transform: translate(-7px);
+        color: #daa520;
+    }
+</style>
+
+<style is:global>
+  .fadeIn p {
+    /* font-size: 0.95em; */
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+</style>
