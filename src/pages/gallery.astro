@@ -1,8 +1,8 @@
 ---
-import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-const AllPhotos = import.meta.glob('../../public/Photos/*.{jpg,jpeg,JPG,JPEG}', {eager:true});
-const Photos = (Object.values(AllPhotos) as {default: ImageMetadata}[]).reverse();
+const AllPhotos = import.meta.glob<{ default: ImageMetadata }>('../Photos/*.{jpg,jpeg,JPG,JPEG}');
+const Photos = Object.keys(AllPhotos).reverse();
 ---
 
 <Layout title=Gallery>
@@ -11,7 +11,11 @@ const Photos = (Object.values(AllPhotos) as {default: ImageMetadata}[]).reverse(
     <div class="gallery-board fadeIn delay-4">
         {
             Photos.map((photo) => (
-                <img class="photo-box" src={photo.default.src} alt="">
+                <Image
+                    class="photo-box"
+                    src={AllPhotos[photo]()}
+                    alt="Gallery snapshot" 
+                />
             ))
         }
     </div>
