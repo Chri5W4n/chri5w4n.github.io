@@ -10,14 +10,14 @@ const Photos = Object.keys(AllPhotos).reverse();
     <p class="gallery-phase fadeIn delay-3">A collection of snapshot memories, street aesthetics, and quiet milestones.</p>
     <div class="gallery-board fadeIn delay-4">
         {
-            Photos.map((photo) => (
+            Photos.map((photo, index) => (
                 <Image
                     class="photo-box"
                     src={AllPhotos[photo]()}
                     alt="Gallery snapshot" 
                     width={600}  
                     height={600} 
-                    loading="eager"
+                    loading={index < 6 ? "eager" : "lazy"} 
                 />
             ))
         }
