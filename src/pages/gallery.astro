@@ -30,9 +30,14 @@ const Photos = Object.keys(AllPhotos).reverse();
 
     .gallery-board{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 4px;
     margin-top: 40px;
+    }
+    @media (min-width: 768px) {
+        .gallery-board {
+            grid-template-columns: repeat(5, 1fr);
+        }
     }
 
     .gallery-board a{
