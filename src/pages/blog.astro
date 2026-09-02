@@ -17,7 +17,9 @@ const SortedPosts = AllPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
         SortedPosts.map( post => (
           <article class="post-item">
             <time class="post-date" datetime={post.data.date.toISOString().split("T")[0]}>{post.data.date.toLocaleDateString('en-US', {month: 'long', day: '2-digit'})}</time>
-            <a href={`/blog/${post.id}`} class="post-link">{post.data.title}</a>
+            <h3 class="post-title">
+              <a href={`/blog/${post.id}`} class="post-link">{post.data.title}</a>
+            </h3>
           </article>
         ))
       }
@@ -34,11 +36,14 @@ const SortedPosts = AllPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
   }
 
   .post-date {
-    color: #555555;
     font-family: serif;
     font-size: 1rem;
     width: 110px;
     flex-shrink: 0;
+  }
+
+  .post-title{
+    margin: 0;
   }
 
   .post-link {
