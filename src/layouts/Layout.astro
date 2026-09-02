@@ -14,7 +14,7 @@ import '@fontsource/playfair-display/700.css';
 
     <header class="fadeIn delay-1">
       <nav>
-        <a href="/" class:list={["nav-now", { active: Astro.url.pathname.endsWith("/") }]}>Now</a>
+        <a href="/" class:list={["nav-now", { active: Astro.url.pathname === "/" }]}>Now</a>
         <a href="/blog" class:list={["nav-blog", { active: Astro.url.pathname.includes("blog") }]}>Blog</a>
         <a href="/project" class:list={["nav-project", { active: Astro.url.pathname.includes("project") }]}>Project</a>
         <a href="/gallery" class:list={["nav-gallery", { active: Astro.url.pathname.includes("gallery") }]}>Gallery</a>
