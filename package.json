@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/playfair-display": "^5.3.0",
     "astro": "^7.2.4"
   }
 }
