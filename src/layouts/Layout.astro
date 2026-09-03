@@ -31,8 +31,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <footer class="fadeIn delay-5">
         <div class="footer-links">
-          <a href="https://github.com/Chri5W4n" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="#" class="anti-bot-email" onclick="const u='me', d='chri5w4n.com'; this.href='mail'+'to:'+u+'@'+d;">moc.n4w5irhc@em</a>
+          <a class="link" href="https://github.com/Chri5W4n" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <button class="link anti-bot-email" onclick="const u='me', d='chri5w4n.com'; window.location.href='mail'+'to:'+u+'@'+d;">moc.n4w5irhc@em</button>
         </div>
         <p class="copyright">&copy; 2026 Chri5W4n</p>
     </footer>
@@ -150,15 +150,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     gap: 24px;
   }
 
-  footer a{
+  .link{
     color: #8b949e;
     font-size: 0.8rem;
     padding: 0;
   }
 
-  footer a:hover{
+  .link:hover{
     color: #ffffff;
   }
+
+  .anti-bot-email {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
 
   .copyright{
     color: #838383;
@@ -188,8 +198,4 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   .delay-5 { animation-delay: 950ms; }
   .delay-6 { animation-delay: 1150ms; }
   
-  .anti-bot-email {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-  }
 </style>
