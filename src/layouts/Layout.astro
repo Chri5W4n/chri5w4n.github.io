@@ -1,6 +1,6 @@
 ---
 import '@fontsource/playfair-display/700.css';
-const { title } = Astro.props;
+const { title, description = "Exploring low-level C development, Swift, frontend, quantitative finance, and AI models." } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Advancing core technical stack in low-level C development, Swift, and modern frontend. Deep diving into quantitative finance, AI models, and chess tactical endgame theory." />
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="preload" href="/_astro/playfair-display-latin-700-normal.CuDiGg7c.woff2" as="font" type="font/woff2" crossorigin />
     <title>{ title }</title>
